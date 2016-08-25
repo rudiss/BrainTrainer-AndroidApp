@@ -22,5 +22,120 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@android:color/holo_red_light"
-        android:onClick="start" />
+        android:onClick="start"
+        tools:ignore="UnusedAttribute"
+        android:visibility="invisible" />
+
+    <TextView
+        android:text="30s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/timerTextView"
+        android:textSize="30sp"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:padding="10dp"
+        tools:targetApi="lollipop"
+        tools:ignore="HardcodedText"
+        android:background="?android:attr/colorPressedHighlight"
+        android:textColor="?attr/actionModeSplitBackground"
+        android:textAllCaps="false"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="0/0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pointsTextView"
+        android:textSize="30sp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/startButton"
+        android:layout_toEndOf="@+id/startButton"
+        android:padding="10dp"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/background_light" />
+
+    <TextView
+        android:text="31 + 12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sumTextView"
+        android:textSize="24sp"
+        android:padding="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/background_dark" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/timerTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:tag="0"
+            android:id="@+id/button2"
+            android:textSize="80dp"
+            android:background="@color/colorPrimary"
+            android:onClick="chooseAnswer" />
+
+        <Button
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:tag="1"
+            android:id="@+id/button2"
+            android:textSize="80dp"
+            android:background="@color/colorPrimary"
+            android:onClick="chooseAnswer" />
+
+        <Button
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:tag="2"
+            android:id="@+id/button2"
+            android:textSize="80dp"
+            android:background="@color/colorPrimary"
+            android:onClick="chooseAnswer" />
+
+        <Button
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:tag="3"
+            android:id="@+id/button2"
+            android:textSize="80dp"
+            android:background="@color/colorPrimary"
+            android:onClick="chooseAnswer" />
+    </GridLayout>
+
 </RelativeLayout>
