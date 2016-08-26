@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,13 +19,16 @@ public class MainActivity extends AppCompatActivity {
     Button button3;
     Button button4;
     Button startButton;
+    Button playAgainButton;
 
+
+    TextView sumTextView;
     TextView resultTextView;
     TextView pointsTextView;
     TextView timerTextView;
 
+    RelativeLayout gameRelativeLayout;
 
-    TextView sumTextView;
     ArrayList<Integer> answers = new ArrayList<Integer>();
 
     int score = 0;
@@ -38,8 +42,11 @@ public class MainActivity extends AppCompatActivity {
         timerTextView.setText("30s");
         pointsTextView.setText("0/0");
         resultTextView.setText("");
+        playAgainButton.setVisibility(View.INVISIBLE);
 
-        new CountDownTimer(3100, 1000) {
+        generateQuestion();
+
+        new CountDownTimer(30100, 1000) {
 
             @Override
             public void onTick(long l) {
@@ -50,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+
+                playAgainButton.setVisibility(View.VISIBLE);
                 timerTextView.setText("0s");
                 resultTextView.setText("Your Score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
             }
@@ -123,7 +132,8 @@ public class MainActivity extends AppCompatActivity {
     public void start(View view) {
 
         startButton.setVisibility(View.INVISIBLE);
-
+        gameRelativeLayout.setVisibility(RelativeLayout.VISIBLE);
+        playAgain(findViewById(R.id.playAgainButton));
 
     }
 
@@ -143,10 +153,9 @@ public class MainActivity extends AppCompatActivity {
         resultTextView = (TextView) findViewById(R.id.textView5);
         pointsTextView = (TextView) findViewById(R.id.pointsTextView);
         timerTextView = (TextView) findViewById(R.id.timerTextView);
+        playAgainButton = (Button) findViewById(R.id.playAgainButton);
+        gameRelativeLayout = (RelativeLayout) findViewById(R.id.gameRelativeLayout);
 
-        generateQuestion();
-
-       playAgain();
 
     }
 }
