@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                answers.add(rand.nextInt(41));
+                answers.add(incorrectAnswer);
 
             }
         }
