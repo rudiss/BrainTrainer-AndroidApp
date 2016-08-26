@@ -31,6 +31,31 @@ public class MainActivity extends AppCompatActivity {
     int locationOFCorrectAnswer;
     int numberOfQuestions = 0;
 
+    public void playAgain(View view) {
+        score = 0;
+        numberOfQuestions = 0;
+
+        timerTextView.setText("30s");
+        pointsTextView.setText("0/0");
+        resultTextView.setText("");
+
+        new CountDownTimer(3100, 1000) {
+
+            @Override
+            public void onTick(long l) {
+
+                timerTextView.setText(String.valueOf(l / 1000) + "s");
+
+            }
+
+            @Override
+            public void onFinish() {
+                timerTextView.setText("0s");
+                resultTextView.setText("Your Score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
+            }
+        }.start();
+    }
+
     public void generateQuestion() {
 
         Random rand = new Random();
@@ -121,21 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
         generateQuestion();
 
-        new CountDownTimer(3100, 1000) {
-
-            @Override
-            public void onTick(long l) {
-
-                timerTextView.setText(String.valueOf(l / 1000) + "s");
-
-            }
-
-            @Override
-            public void onFinish() {
-                timerTextView.setText("0s");
-                resultTextView.setText("Your Score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
-            }
-        }.start();
+       playAgain();
 
     }
 }
