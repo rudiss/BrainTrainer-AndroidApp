@@ -1,5 +1,6 @@
 package com.rudisdev.braintrainerapp;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView resultTextView;
     TextView pointsTextView;
+    TextView timerTextView;
 
 
     TextView sumTextView;
@@ -85,7 +87,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         numberOfQuestions++;
+        timerTextView = (TextView) findViewById(R.id.timerTextView);
         pointsTextView.setText(Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
+
+
         generateQuestion();
 
     }
@@ -112,9 +117,27 @@ public class MainActivity extends AppCompatActivity {
 
         resultTextView = (TextView) findViewById(R.id.textView5);
         pointsTextView = (TextView) findViewById(R.id.pointsTextView);
+        timerTextView = (TextView) findViewById(R.id.timerTextView);
 
         generateQuestion();
 
+        new CountDownTimer(3100, 1000) {
+
+            @Override
+            public void onTick(long l) {
+
+                timerTextView.setText(String.valueOf(l / 1000) + "s");
+
+            }
+
+            @Override
+            public void onFinish() {
+                timerTextView.setText("0s");
+                resultTextView.setText("Your Score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
+            }
+        }.start();
 
     }
 }
+
+
