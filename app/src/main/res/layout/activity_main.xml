@@ -56,16 +56,6 @@
         android:textColor="@android:color/background_dark" />
 
     <TextView
-        android:text="Correct!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/startButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:id="@+id/textView5"
-        android:textSize="40sp" />
-
-    <TextView
         android:text="0/0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,11 +68,19 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="58dp" />
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
-        android:layout_above="@+id/textView5"
+        android:layout_alignBottom="@+id/startButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -99,21 +97,6 @@
             android:id="@+id/button1"
             android:textSize="80dp"
             android:background="@color/colorPrimary"
-            android:onClick="chooseAnswer" />
-
-        <Button
-            android:text="3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="0"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
-            android:tag="1"
-            android:id="@+id/button2"
-            android:textSize="80dp"
-            android:background="@android:color/holo_green_light"
             android:onClick="chooseAnswer" />
 
         <Button
@@ -144,6 +127,21 @@
             android:id="@+id/button4"
             android:textSize="80dp"
             android:background="@android:color/holo_blue_bright"
+            android:onClick="chooseAnswer" />
+
+        <Button
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:tag="1"
+            android:id="@+id/button2"
+            android:textSize="80dp"
+            android:background="@android:color/holo_green_light"
             android:onClick="chooseAnswer" />
     </GridLayout>
 
