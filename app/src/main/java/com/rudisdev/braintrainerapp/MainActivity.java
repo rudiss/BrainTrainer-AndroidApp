@@ -2,6 +2,7 @@ package com.rudisdev.braintrainerapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,8 +13,19 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     Button startButton;
-    ArrayList<Integer> answers;
+    ArrayList<Integer> answers = new ArrayList<Integer>();
     int locationOFCorrectAnswer;
+    int score =0;
+    public void chooseAnswer(View view) {
+
+        if (view.getTag().toString().equals(Integer.toString(locationOFCorrectAnswer))) {
+
+            score++;
+
+        }
+
+
+    }
 
     public void start(View view) {
 
@@ -30,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         startButton = (Button) findViewById(R.id.startButton);
         TextView sumTextView = (TextView) findViewById(R.id.sumTextView);
 
+        Button button1 = (Button) findViewById(R.id.button1);
+        Button button2 = (Button) findViewById(R.id.button2);
+        Button button3 = (Button) findViewById(R.id.button3);
+        Button button4 = (Button) findViewById(R.id.button4);
+        resultTextView = (findViewById(R.id.resultTextView));
+
+
         Random rand = new Random();
 
         int a = rand.nextInt(21);
@@ -41,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         int incorrectAnswer;
 
-        for (int i = 0; i < 4:i++){
+        for (int i = 0; i < 4; i++) {
 
             if (i == locationOFCorrectAnswer) {
                 answers.add(a + b);
@@ -61,5 +80,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
+
+        button1.setText(Integer.toString(answers.get(0)));
+        button2.setText(Integer.toString(answers.get(1)));
+        button3.setText(Integer.toString(answers.get(2)));
+        button4.setText(Integer.toString(answers.get(3)));
+
     }
 }
